@@ -18,7 +18,7 @@ import pytest
 
 from metrics import compute, db
 
-TZ = ZoneInfo("Europe/Madrid")
+TZ = ZoneInfo("Europe/Paris")
 NOW = datetime(2026, 7, 11, 3, 30, tzinfo=timezone.utc)
 
 

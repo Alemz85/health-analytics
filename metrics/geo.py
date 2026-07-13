@@ -10,9 +10,8 @@ from __future__ import annotations
 
 import math
 
-# ISO-3166-1 alpha2 -> human-readable name. Covers the user's own data
-# (Singapore, Spain, Italy) plus a broad common set; unknown codes fall back
-# to the raw code rather than raising.
+# ISO-3166-1 alpha2 -> human-readable name. A broad common set; unknown codes
+# fall back to the raw code rather than raising.
 _COUNTRY_NAMES: dict[str, str] = {
     "SG": "Singapore",
     "ES": "Spain",
