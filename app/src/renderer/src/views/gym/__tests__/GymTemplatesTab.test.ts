@@ -71,4 +71,37 @@ describe('GymTemplatesTab recovery previews', () => {
 
     expect(markup).toContain('controlled loading')
   })
+
+  it('omits a card for an injury whose recovery plan was never started', () => {
+    // Mirrors an injury just logged in the Injuries tab: status isn't
+    // 'resolved' yet so useRecoveryPlanBundles still yields a bundle for it,
+    // but plan_started_at is null because "Set plan start" was never clicked
+    // — this used to still render a card here even with no active plan.
+    const recoveryTemplate: RecoveryLogTemplate = {
+      id: 'recovery:shoulder',
+      injuryId: 'shoulder',
+      planStartedAt: null,
+      name: 'Shoulder recovery',
+      summary: 'Some early notes on the shoulder before a plan exists.',
+      rows: [],
+      exerciseItems: [],
+      guidance: [],
+      unlinkedExerciseCount: 0
+    }
+    const queryClient = new QueryClient()
+    const tab = createElement(GymTemplatesTab, {
+      templates: [],
+      recoveryTemplates: [recoveryTemplate],
+      usageById: new Map(),
+      onView: () => undefined,
+      onNew: () => undefined,
+      onUseRecovery: () => undefined
+    })
+    const markup = renderToStaticMarkup(
+      createElement(QueryClientProvider, { client: queryClient }, tab)
+    )
+
+    expect(markup).not.toContain('Shoulder recovery')
+    expect(markup).not.toContain('Recovery plans')
+  })
 })
