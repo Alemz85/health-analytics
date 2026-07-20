@@ -89,4 +89,3 @@ Make the status action row able to omit its plan button. Use that form only in t
 - [ ] **Step 4: Verify injury behavior**
 
 Run all injury renderer/stat tests, typecheck, and the full Vitest suite. Capture active and resolved full views in dark/light themes at 1440×900 and 900×600.
-

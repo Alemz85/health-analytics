@@ -51,4 +51,3 @@ Run the focused test, `npm run typecheck`, and `npx vitest run` from `app/`. Exp
 - [ ] **Step 5: Verify rendered spacing**
 
 Launch with `HEALTH_APP_DISPLAY=external`, capture the Dashboard in dark and light themes at desktop width and around the 1100px/760px breakpoints, and confirm adjacent opening-card gaps remain 16px without proportion changes.
-

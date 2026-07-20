@@ -62,4 +62,3 @@ Change electron-builder's resource mapping from `../chatctx/.claude` to `../chat
 - [ ] **Step 6: Verify and package**
 
 Run the focused test, `npm run typecheck`, full Vitest, and `npm run dist:mac`. Inspect the app bundle for the health skill and absence of packaged `.claude/settings.json`; verify DMG and ZIP integrity.
-
